@@ -1,1 +1,92 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Ads Tracking Practice</title>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PSSDNLJC');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+      padding: 40px 20px;
+    }
+    .card {
+      max-width: 440px;
+      margin: auto;
+      padding: 30px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px #0001;
+    }
+    input, button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px;
+      margin-top: 12px;
+      border-radius: 7px;
+    }
+    input { border: 1px solid #ccc; }
+    button {
+      background: #1769d2;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #success { color: green; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSSDNLJC"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+
+  <div class="card">
+    <h1>Junk Removal Practice</h1>
+    <p>Test website for Google Ads conversion tracking.</p>
+    <p><strong>Demo only — no real quotes are sent.</strong></p>
+
+    <form id="quoteForm">
+      <input type="text" placeholder="Fake customer name" required>
+      <input type="text" placeholder="Type of junk" required>
+      <button type="submit">Request Free Quote</button>
+    </form>
+
+    <p id="success" role="status"></p>
+  </div>
+
+  <script>
+    document.getElementById('quoteForm')
+      .addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        document.getElementById('success').textContent =
+          'Practice form submitted successfully!';
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'quote_form_success'
+        });
+      });
+  </script>
+</body>
+</html>
+
